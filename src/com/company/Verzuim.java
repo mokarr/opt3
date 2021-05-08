@@ -17,27 +17,29 @@ public class Verzuim {
     }
 
 
+    public String verzuimPeriode() {
 
-    public String verzuimPeriode(){
+        if (isZiekgemeld) {
+
+            if (isZiekgemeld && isGoedGekeurd) {
 
 
-        if(isZiekgemeld)
+            if (isZiekgemeld && isGoedGekeurd && heeftAfspraak) {
+
+                if (verzuimPeriode < 6 && verzuimPeriode > 0) {
+                    return "Kort verzuim";
+                }
+                if (verzuimPeriode == 6) {
+                    return "Normaal verzuim";
+                }
+                if (verzuimPeriode > 6) {
+                    return "Lang verzuim";
+                }
+                 else return "Verzuimperiode moet nog berekend worden door bedrijfsarts";
+            }return "Er moet nog een afspraak ingepland worden";}
+
+
             return "Moet nog goedgekeurd worden door verzuim medewerker";
-        if (isZiekgemeld && isGoedGekeurd )
-            return "Er moet nog een afspraak ingepland worden";
-        if(isZiekgemeld && isGoedGekeurd && heeftAfspraak)
-
-            if (verzuimPeriode < 6) {
-                return "Kort verzuim";
-            }
-            if (verzuimPeriode == 6) {
-                return "Normaal verzuim";
-            }
-            if (verzuimPeriode > 6) {
-                return "Lang verzuim";
-            }
-
-            else return "is niet ziek";
-        }
-
+        }return "is niet ziek";
+    }
 }
